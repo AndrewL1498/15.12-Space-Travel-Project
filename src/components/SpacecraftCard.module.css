@@ -1,0 +1,50 @@
+.spacecraftCard {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+    border: 2px solid #ffffff;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.spacecraftDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.destroyButtonContainer {
+   margin-left: auto;
+}
+
+.destroyButton {
+   background: transparent;
+   border: 2px solid white;
+   color: white;
+   padding: 10px;
+   width: 100px;
+   font-size: 15px;
+}
+
+.destroyButton:hover {
+   border-color: rgb(190, 0, 0);
+   color: rgb(255, 255, 255);
+   cursor: pointer;
+}
+
+.spacecraftImage {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+    padding: 5px;
+    background-color: #000;
+}
+
+.spacecraftImage:hover {
+    border-color: rgb(9, 190, 0);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}

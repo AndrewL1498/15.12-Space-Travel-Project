@@ -1,0 +1,124 @@
+.planetsPageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top:2rem;
+   
+}
+
+.planetsSection {
+  width: 80%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+   /* border: 2px solid #ffffff; */
+}
+
+.planetCard {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+    border: 2px solid #ffffff;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+.planetImage {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    /* border: 2px solid #ffffff; */
+    padding: 5px;
+    background-color: #000;
+}
+
+.planetDetails {
+    border: 2px solid #ffffff;
+    padding: 15px;
+    background-color: #000;
+    
+}
+
+.planetDetails h2 {
+  margin: 0;
+  font-size: 0.8rem;     /* adjust as needed */
+  line-height: 1.2;
+  white-space: nowrap;   /* prevent vertical stretching if desired */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.selectedPlanetCard {
+    border: 2px solid #008d00;
+    padding: 15px;
+    background-color: #000000;
+}
+
+.selectedPlanetCard h2 {
+  margin: 0;
+  font-size: 0.8rem;     /* adjust as needed */
+  line-height: 1.2;
+  white-space: nowrap;   /* prevent vertical stretching if desired */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.planetDetails:hover {
+    border-color: red;
+    cursor: pointer;
+}
+
+.earthSpacecraftList {
+  display: flex;
+  flex-wrap: wrap;       /* Optional: wraps items if too many to fit */
+  gap: 1rem;             /* Optional: space between items */
+  align-items: flex-start;
+}
+
+
+.spacecraftItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px;        /* Reduced from 120px */
+  text-align: center;
+  font-size: 0.75rem; /* Optional: shrink text too */
+}
+
+.spacecraftImage {
+  width: 50px ;
+  height: 50px ;
+  object-fit: cover;
+  border: 2px dotted white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Match fallback emoji exactly using tag + class */
+div.spacecraftImage {
+  width: 50px !important;
+  height: 50px !important;
+  font-size: 1.5rem !important;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  border: 2px dotted white;
+}
+
+
+
+.spacecraftImage:hover {
+    border-color: rgb(9, 190, 0);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+

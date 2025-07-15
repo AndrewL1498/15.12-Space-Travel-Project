@@ -1,0 +1,46 @@
+.homePage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.homePage h1 {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 20px;
+}
+
+.sectionWrapper h2 {
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.section {
+border-radius: 8px;
+padding: 1.5rem;
+width: 80%;
+max-width: 800px;
+color: white;
+text-align: left;
+word-wrap: break-word;
+overflow-wrap: break-word;
+white-space: normal;
+box-sizing:border-box;
+outline: 2px dotted #ffffff;
+outline-offset: -6px;
+width: 100%;
+}
+
+.section h2 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;;
+    font-size: 1.5rem;
+}
+
+.section p {
+    margin: 0;
+    font-size: 1.1rem;
+}

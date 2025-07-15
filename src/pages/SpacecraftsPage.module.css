@@ -1,0 +1,33 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top:2rem;
+   
+}
+
+.cardSection {
+  width: 80%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+   /* border: 2px solid #ffffff; */
+}
+
+.buildASpacecraftButton {
+   background: transparent;
+   border: 2px solid white;
+   color: white;
+   padding: 10px;
+   width: fit-content;
+   font-size: 15px;
+   margin-left: 5.7%;
+}
+
+.buildASpacecraftButton:hover {
+   border-color: rgb(9, 190, 0);
+   color: rgb(255, 255, 255);
+   cursor: pointer;
+}

@@ -1,0 +1,53 @@
+.singleSpacecraftPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem auto;
+    /* border: 2px solid #ffffff; */
+    width: 800px;
+    max-width: 800%;
+    padding: 1rem;
+}
+
+
+.spacecraftImage {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  padding: 5px;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 5rem;
+}
+
+.spacecraftContent {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 2rem;
+}
+
+.spacecraftNameAndCapacity {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.spacecraftDescription {
+  flex: 2;
+  text-align: left;
+}
+
+.spacecraftDescription h3 {
+  margin-bottom: 1rem;
+
+
+
+}
+
