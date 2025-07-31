@@ -1,7 +1,8 @@
 import styles from './ConstructPage.module.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import SpaceTravelApi from '../services/SpaceTravelApi';
+
 
 function ConstructPage() {
 
@@ -13,14 +14,26 @@ function ConstructPage() {
 
 
     const navigate = useNavigate();
+    const location = useLocation(); //location is the object returned by useLocation(), and it contains info about the current route — including any state passed during navigation (like totalCapacity).
+    const totalCapacity = location.state?.totalCapacity || 0; //Set totalCapacity to the value from location.state.totalCapacity if it exists, otherwise default to 0. It uses optional chaining (?.) to avoid errors if state is undefined.
 
     async function handleBuild() {
 
         setErrorMessage([]); // Reset error messages before validation
         const errors = []; // Array to collect validation errors
+        const numericCapacity = Number(capacity) // Converts capacity into a number
+
+        if (totalCapacity + numericCapacity > 100000) {
+            setErrorMessage(["Total capacity limit of 100,000 reached."])
+            return;
+        }
 
         if (name.trim().length < 3) errors.push("Name must be at least 3 characters long."); // If the input name is less than 3 characters long, add an error message
         if (capacity.trim() === "") errors.push("Capacity is required."); // If the input capacity is empty, add an error message
+        else if (isNaN(numericCapacity)) errors.push("Capacity must be a number."); // Pushes an error if you input something that's not a number
+        else if (numericCapacity <= 0) errors.push("Capacity must be greater than 0."); //Pushes an error if the number isn't greater than zero
+
+
         if (description.trim() === "") errors.push("Description is required."); // If the input description is empty, add an error message
 
         // If there are any errors, set the error messages state to the errors array and return
@@ -31,7 +44,7 @@ function ConstructPage() {
 
 
       try {
-        const res = await SpaceTravelApi.buildSpacecraft({ name, capacity, description, pictureUrl });
+        const res = await SpaceTravelApi.buildSpacecraft({ name, capacity: numericCapacity, description, pictureUrl });
         if (!res.isError) {
           navigate('/spacecrafts'); // Navigate to the spacecrafts page after successful build
         } else {

@@ -9,6 +9,7 @@ import SpacecraftCard from '../components/SpacecraftCard.jsx';
 function SpacecraftsPage() {
     const navigate = useNavigate();
     const [spacecrafts, setSpacecrafts] = useState([]);
+    const [totalCapacity, setTotalCapacity] = useState(0);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -16,7 +17,13 @@ function SpacecraftsPage() {
             try {
                 const res = await SpaceTravelApi.getSpacecrafts();
                if (!res.isError) {
-                 setSpacecrafts(res.data); //If response.error is false, set space crafts to the data contained within getSpacecrafts
+                const ships = res.data
+                 setSpacecrafts(ships); //If response.error is false, set space crafts to the data contained within getSpacecrafts
+
+                const total = ships.reduce((acc, ship) => acc + Number(ship.capacity), 0);
+                setTotalCapacity(total) //Ships is an array of spacecraft objects, reduce loops through each ship, acc (accumulator) holds the running total, ship is the current spacecraft in the loop, ship.capacity gets converted to a number, and 0 sets the initial value of the accumulator
+
+
                } else {
                  console.error("Error fetching spacecrafts:", res.data);
                }
@@ -28,6 +35,16 @@ function SpacecraftsPage() {
         }
         fetchSpacecrafts();
     },[])
+
+    useEffect(() => {
+      const total = spacecrafts.reduce((acc, ship) => acc + Number(ship.capacity), 0);
+      setTotalCapacity(total);
+      }, [spacecrafts]);
+
+      useEffect(() => {
+  console.log("Total Capacity:", totalCapacity);
+}, [totalCapacity]);
+
 
   async function destroySpacecraft(id) {
     try {
@@ -42,6 +59,8 @@ function SpacecraftsPage() {
     }
   }
 
+  console.log(spacecrafts)
+
     return (
         <div className={styles.pageContainer}>
             {loading ? ( 
@@ -50,7 +69,7 @@ function SpacecraftsPage() {
               
             <div className={styles.cardSection}>
               <div className={styles.buildButtonWrapper}>
-                <button className={styles.buildASpacecraftButton} onClick={() => navigate('/construct')}>Build A Spacecraft</button>
+                <button className={styles.buildASpacecraftButton} onClick={() => navigate('/construct', {state: { totalCapacity }})}>Build A Spacecraft</button>
              </div>
 
             {spacecrafts.map((spacecraft) => ( // Map through the spacecrafts array and render a SpacecraftCard for each spacecraft

@@ -25,6 +25,12 @@
   margin-bottom: 5rem;
 }
 
+.spacecraftImage:hover {
+  border-color: white !important; /* override hover green */
+  cursor: default !important;     /* no pointer cursor */
+  transform: none !important;     /* prevent any hover scaling or shifting */
+}
+
 .spacecraftContent {
   display: flex;
   justify-content: space-between;
@@ -46,8 +52,6 @@
 
 .spacecraftDescription h3 {
   margin-bottom: 1rem;
-
-
-
 }
+
 

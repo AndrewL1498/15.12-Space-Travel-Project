@@ -19,10 +19,9 @@ function PlanetsPage() {
           SpaceTravelApi.getSpacecrafts(),
         ]);
 
-        // If there is no error fetching planets, map over the planet response data creating a new array with all the planets and their properties, but overwrites the the current population with a number instead of a string. Then set the planets state with the corrected array.
+        // If there is no error fetching planets, map over the planet response data creating a new array with all the planets and their properties
         if (!planetRes.isError) {
-         const correctedPlanets = planetRes.data.map(planet => ({...planet, currentPopulation: Number(planet.currentPopulation)
-         }));
+            const correctedPlanets = planetRes.data.map(planet => ({...planet, CurrentPopulation: (planet.currentPopulation) }));
 
          setPlanets(correctedPlanets);
         } else {
@@ -77,11 +76,10 @@ setSpacecrafts(prev =>
 // After successfully moving the spacecraft, fetch the updated planets to reflect the changes in population.
 const planetRes = await SpaceTravelApi.getPlanets();
 if (!planetRes.isError) {
-  const correctedPlanets = planetRes.data.map(planet => ({...planet, currentPopulation: Number(planet.currentPopulation)
-  }));
+  const correctedPlanets = planetRes.data.map(planet => ({...planet, CurrentPopulation: (planet.currentPopulation) }));
   setPlanets(correctedPlanets);
 }
-
+console.log(planets)
 
 } catch(error) {
     console.error("Failed to move spacecraft:", error);
@@ -94,8 +92,13 @@ if (!planetRes.isError) {
   if (loading) return <Loader />;
 
 return (
-  <div className={styles.planetsPageContainer}>
+  <div className={styles.planetsPageContainer} data-testid="planets-page">
 
+{moving && 
+ 
+    <Loader />
+  
+}
 
     <div className={styles.planetsSection}>
       {planets.map((planet) => (
@@ -107,16 +110,16 @@ return (
               className={styles.planetImage}
             />
             <h2 className={styles.planetName}>{planet.name}</h2>
-            <h2>{Number(planet.currentPopulation).toLocaleString()}</h2>
+            <h2>{(planet.currentPopulation)}</h2>
           </div>
 
-          {/* If there is at least one spacecraft who's current location is equal to the planet id then */}
-          {spacecrafts.some(sc => sc.currentLocation === planet.id) && (
+          {/* If there is at least one spacecraft who's current location is equal to the planet id then create a list of spaceships assigned to earth */}
+          {spacecrafts.some(sc => sc.currentLocation === planet.id) && ( //Some returns true if at least one spacecraft's current location matches the planet id. If true, render the spacecraft list.
             <div className={styles.earthSpacecraftList}>
-              {spacecrafts.length > 0 ? (
+              {spacecrafts.length > 0 ? ( //If spacecrafts length is greater than 0, filter out and create a new array of spacecrafts who's current location is equal to the current planet id. 
                 spacecrafts
                 .filter(sc => sc.currentLocation === planet.id)
-                .map((sc) => (
+                .map((sc) => ( //Then map over the filtered spacecrafts and create a div for each spacecraft with its name, capacity, and an image.
                   <div key={sc.id} className={styles.spacecraftItem}>
                     <FallBackImage
                       src={sc.pictureUrl}
@@ -131,7 +134,7 @@ return (
                     </div>
                   </div>
                 ))
-              ) : (
+              ) : ( // If there are no spacecrafts, display a message.
                 <p>No spacecrafts available.</p>
               )}
             </div>

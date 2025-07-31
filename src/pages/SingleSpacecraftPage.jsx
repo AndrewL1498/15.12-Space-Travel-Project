@@ -44,7 +44,7 @@ function SingleSpacecraftPage() {
                     src={spacecraft.pictureUrl}
                     alt={spacecraft.name}
                     className={styles.spacecraftImage}
-                    onClick={() => navigate(`/spacecrafts/${spacecraft.id}`)}
+                    disableHover={true}
                 />
         
         <div className={styles.spacecraftContent}>
