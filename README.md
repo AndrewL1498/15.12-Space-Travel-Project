@@ -20,7 +20,7 @@ This project allows you to create a spaceship with a name, description, capacity
 
 <p align="center">
 Launch the utility: <br/>
-<img src="[https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps](https://imgur.com/yiAl5iC)"/>
+<img src="[(https://imgur.com/yiAl5iC)" height="80%" width="80%" alt="Disk Sanitization Steps]"/>
 <br />
 <br />
 Select the disk:  <br/>
@@ -56,3 +56,4 @@ Observe the wiped disk:  <br/>
 @@ text in purple (and bold)@@
 ```
 --!>
+
