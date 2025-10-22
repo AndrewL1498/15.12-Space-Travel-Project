@@ -1,6 +1,4 @@
-<h1>JWipe - Disk Sanitization</h1>
-
- ### [YouTube Demonstration](https://youtu.be/7eJexJVCqJo)
+<h1>Space Travel</h1>
 
 <h2>Description</h2>
 This project allows you to create a spaceship with a name, description, capacity, and unique image url and assign that ship to it's own planet. Each ship that is created will start on planet earth and the capacity of Earth, as well as the planets capacity that the ship is sent to, will be updated whenever you move a ship from one planet to another.
@@ -9,12 +7,12 @@ This project allows you to create a spaceship with a name, description, capacity
 
 <h2>Languages and Utilities Used</h2>
 
-- <b>PowerShell</b> 
-- <b>Diskpart</b>
+- <b>React</b> 
+- <b>Javascript</b>
 
 <h2>Environments Used </h2>
 
-- <b>Windows 10</b> (21H2)
+- <b>Windows 10</b>
 
 <h2>Program walk-through:</h2>
 
@@ -53,5 +51,6 @@ Select ship you want to move:  <br/>
 @@ text in purple (and bold)@@
 ```
 --!>
+
 
 
